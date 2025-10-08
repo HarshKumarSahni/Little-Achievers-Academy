@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "922890309890",
+    "project_id": "little-achievers-academy-demo",
+    "storage_bucket": "little-achievers-academy-demo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922890309890:android:a8f7d02549f894c646f21b",
+        "android_client_info": {
+          "package_name": "com.example.little_achievers_academy_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBguA_F0YkYI_DPCWHUop73MaOzeEJJrMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922890309890:android:02c7ee332c06e1a946f21b",
+        "android_client_info": {
+          "package_name": "com.example.lla_sample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBguA_F0YkYI_DPCWHUop73MaOzeEJJrMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
