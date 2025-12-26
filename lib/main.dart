@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lla_sample/services/auth_service.dart';
+import 'package:lla_sample/pages/auth/login_page.dart';
+import 'package:lla_sample/pages/auth/registration_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // Import your homepage UI
 import 'pages//homepage_UI.dart'; // <-- make sure you have this file in `lib/`
@@ -19,6 +23,8 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
+
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -30,7 +36,58 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const AuthWrapper(),
+    );
+  }
+}
+
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: AuthService().user,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          final User? user = snapshot.data;
+          
+          if (user == null) {
+            return const LoginPage();
+          }
+
+          // User is logged in
+          
+          // If Guest (Anonymous), skip registration check and go to Home
+          if (user.isAnonymous) {
+            return const HomePage();
+          }
+
+          // check if profile exists/complete
+          return FutureBuilder<bool>(
+            future: AuthService().isUserProfileComplete(),
+            builder: (context, profileSnapshot) {
+              if (profileSnapshot.connectionState == ConnectionState.waiting) {
+                return const Scaffold(
+                  body: Center(child: CircularProgressIndicator()),
+                );
+              }
+
+              final bool isComplete = profileSnapshot.data ?? false;
+              if (isComplete) {
+                return const HomePage();
+              } else {
+                return const RegistrationPage();
+              }
+            },
+          );
+        }
+        return const Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
     );
   }
 }

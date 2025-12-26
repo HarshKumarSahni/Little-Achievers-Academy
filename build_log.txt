@@ -1,0 +1,101 @@
+Support for Android x86 targets will be removed in the next stable release after 3.27. See https://github.com/flutter/flutter/issues/157543 for details.
+Running Gradle task 'assembleDebug'...                          
+lib/pages//ai_quiz_page.dart:4:8: Error: Error when reading 'lib/pages/models/class_model.dart': The system cannot find the path specified.
+
+import '../models/class_model.dart';
+       ^
+lib/pages//quiz_page.dart:2:8: Error: Error when reading 'lib/pages/models/quiz_model.dart': The system cannot find the path specified.
+
+import '../models/quiz_model.dart';
+       ^
+lib/pages//quiz_page.dart:3:8: Error: Error when reading 'lib/pages/services/quiz_service.dart': The system cannot find the path specified.
+
+import '../services/quiz_service.dart';
+       ^
+lib/pages//quiz_results_page.dart:2:8: Error: Error when reading 'lib/pages/models/quiz_model.dart': The system cannot find the path specified.
+
+import '../models/quiz_model.dart';
+       ^
+lib/pages//ai_quiz_page.dart:18:8: Error: Type 'SubjectModel' not found.
+  List<SubjectModel> _subjects = [];
+       ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:19:8: Error: Type 'ChapterModel' not found.
+  List<ChapterModel> _chapters = [];
+       ^^^^^^^^^^^^
+lib/pages//quiz_page.dart:24:3: Error: Type 'Quiz' not found.
+  Quiz? _quiz;
+  ^^^^
+lib/pages//quiz_results_page.dart:6:9: Error: Type 'QuizResult' not found.
+  final QuizResult result;
+        ^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:18:8: Error: 'SubjectModel' isn't a type.
+  List<SubjectModel> _subjects = [];
+       ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:19:8: Error: 'ChapterModel' isn't a type.
+  List<ChapterModel> _chapters = [];
+       ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:39:12: Error: 'SubjectModel' isn't a type.
+      List<SubjectModel> subjects = subjectsSnapshot.docs
+           ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:40:25: Error: The getter 'SubjectModel' isn't defined for the class '_AIQuizPageState'.
+ - '_AIQuizPageState' is from 'package:lla_sample/pages//ai_quiz_page.dart' ('lib/pages//ai_quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'SubjectModel'.
+          .map((doc) => SubjectModel.fromJson(doc.data(), docId: doc.id))
+                        ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:65:12: Error: 'ChapterModel' isn't a type.
+      List<ChapterModel> chapters = chaptersSnapshot.docs
+           ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:66:25: Error: The getter 'ChapterModel' isn't defined for the class '_AIQuizPageState'.
+ - '_AIQuizPageState' is from 'package:lla_sample/pages//ai_quiz_page.dart' ('lib/pages//ai_quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ChapterModel'.
+          .map((doc) => ChapterModel.fromJson(doc.data(), docId: doc.id))
+                        ^^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:225:46: Error: The getter 'id' isn't defined for the class 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'id'.
+                              value: chapter.id,
+                                             ^^
+lib/pages//ai_quiz_page.dart:226:51: Error: The getter 'chapterName' isn't defined for the class 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'chapterName'.
+                              child: Text(chapter.chapterName),
+                                                  ^^^^^^^^^^^
+lib/pages//ai_quiz_page.dart:228:30: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 'List<DropdownMenuItem<String>>?'.
+ - 'List' is from 'dart:core'.
+ - 'DropdownMenuItem' is from 'package:flutter/src/material/dropdown.dart' ('/D:/flutter/src/flutter/packages/flutter/lib/src/material/dropdown.dart').
+                          }).toList(),
+                             ^
+lib/pages//quiz_page.dart:24:3: Error: 'Quiz' isn't a type.
+  Quiz? _quiz;
+  ^^^^
+lib/pages//quiz_page.dart:40:26: Error: The getter 'QuizService' isn't defined for the class '_QuizPageState'.
+ - '_QuizPageState' is from 'package:lla_sample/pages//quiz_page.dart' ('lib/pages//quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'QuizService'.
+      final quiz = await QuizService.generateQuiz(
+                         ^^^^^^^^^^^
+lib/pages//quiz_page.dart:69:28: Error: The getter 'QuizService' isn't defined for the class '_QuizPageState'.
+ - '_QuizPageState' is from 'package:lla_sample/pages//quiz_page.dart' ('lib/pages//quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'QuizService'.
+      final result = await QuizService.submitQuiz(
+                           ^^^^^^^^^^^
+lib/pages//quiz_results_page.dart:6:9: Error: 'QuizResult' isn't a type.
+  final QuizResult result;
+        ^^^^^^^^^^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'D:\flutter\src\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 19s
+Running Gradle task 'assembleDebug'...                             19.7s
+Gradle task assembleDebug failed with exit code 1

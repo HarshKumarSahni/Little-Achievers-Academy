@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flutter (Samsung SM S921B)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "RZCY50F89TM",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "Flutter (Release - Samsung)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "RZCY50F89TM",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Flutter (Profile - Samsung)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "RZCY50F89TM",
+            "flutterMode": "profile"
+        }
+    ]
+}

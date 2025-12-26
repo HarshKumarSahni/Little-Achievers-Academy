@@ -100,7 +100,7 @@ class LocationService {
     if (user == null) throw Exception('User not logged in');
 
     final docRef = await FirebaseFirestore.instance
-        .collection('users')
+        .collection('students')
         .doc(user.uid)
         .collection('addresses')
         .add(location.toJson());
@@ -114,7 +114,7 @@ class LocationService {
     if (user == null) return [];
 
     final snapshot = await FirebaseFirestore.instance
-        .collection('users')
+        .collection('students')
         .doc(user.uid)
         .collection('addresses')
         .orderBy('isDefault', descending: true)
@@ -131,7 +131,7 @@ class LocationService {
     if (user == null || location.id == null) return;
 
     await FirebaseFirestore.instance
-        .collection('users')
+        .collection('students')
         .doc(user.uid)
         .collection('addresses')
         .doc(location.id)
@@ -144,7 +144,7 @@ class LocationService {
     if (user == null) return;
 
     await FirebaseFirestore.instance
-        .collection('users')
+        .collection('students')
         .doc(user.uid)
         .collection('addresses')
         .doc(addressId)

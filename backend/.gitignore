@@ -1,0 +1,8 @@
+# Backend Environment
+.env
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+serviceAccountKey.json

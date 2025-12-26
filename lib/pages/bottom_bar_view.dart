@@ -2,6 +2,13 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
 
+// Import your page files
+import 'homepage_UI.dart';
+import 'notes.dart';
+import 'graph.dart';
+import 'settings.dart';
+import 'ai_quiz_page.dart';
+
 // TabIconData model
 class TabIconData {
   TabIconData({
@@ -43,7 +50,7 @@ class TabIconData {
     ),
     TabIconData(
       imagePath: 'assets/bottom_bar_buttons/settings.png',
-      selectedImagePath: 'assets/bottom_bar_buttons/settings_s.png',
+      selectedImagePath: 'assets/bottom_bar_buttons/settings_s3.png',
       index: 3,
       isSelected: false,
       animationController: null,
@@ -119,7 +126,7 @@ class _BottomBarViewState extends State<BottomBarView>
                                   removeAllSelect: () {
                                     setRemoveAllSelection(
                                         widget.tabIconsList?[0]);
-                                    widget.changeIndex!(0);
+                                    widget.changeIndex?.call(0);
                                   }),
                             ),
                             Expanded(
@@ -128,7 +135,7 @@ class _BottomBarViewState extends State<BottomBarView>
                                   removeAllSelect: () {
                                     setRemoveAllSelection(
                                         widget.tabIconsList?[1]);
-                                    widget.changeIndex!(1);
+                                    widget.changeIndex?.call(1);
                                   }),
                             ),
                             SizedBox(
@@ -145,7 +152,7 @@ class _BottomBarViewState extends State<BottomBarView>
                                   removeAllSelect: () {
                                     setRemoveAllSelection(
                                         widget.tabIconsList?[2]);
-                                    widget.changeIndex!(2);
+                                    widget.changeIndex?.call(2);
                                   }),
                             ),
                             Expanded(
@@ -154,7 +161,7 @@ class _BottomBarViewState extends State<BottomBarView>
                                   removeAllSelect: () {
                                     setRemoveAllSelection(
                                         widget.tabIconsList?[3]);
-                                    widget.changeIndex!(3);
+                                    widget.changeIndex?.call(3);
                                   }),
                             ),
                           ],
@@ -215,11 +222,18 @@ class _BottomBarViewState extends State<BottomBarView>
                           splashColor: Colors.white.withOpacity(0.1),
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
-                          onTap: widget.addClick,
-                          child: Icon(
-                            Icons.add,
-                            color: DesignCourseAppTheme.nearlyWhite,
-                            size: 32,
+                          onTap: () {
+                            widget.addClick?.call();
+                          },
+                          child: const Center(
+                            child: Text(
+                              'AI',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ),
