@@ -1,4 +1,4 @@
-# Little Achievers Academy
+# SrudyNest
 
 A Flutter-based educational app exploring AI-powered quizzes and cross-platform mobile development. (Work in progress)
 
