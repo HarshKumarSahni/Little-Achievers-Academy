@@ -1,6 +1,6 @@
 # Little Achievers Academy
 
-A Flutter-based educational app aimed at helping students (Class 5-10) with their learning journey through quizzes and study materials.
+A Flutter-based educational app exploring AI-powered quizzes and cross-platform mobile development. (Work in progress)
 
 ## Current Features
 
